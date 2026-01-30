@@ -1,24 +1,392 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Dockerized Apache Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comedor Raquel | Comida nicaragüense</title>
+  <meta name="description" content="Comida nicaragüense casera en Comedor Raquel: almuerzos completos, típicos, bebidas y encargos. Ordena por WhatsApp." />
+
+  <!-- Material Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <h1>Tatinha es gay</h1>
+  <!-- Header fijo -->
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="material-icons brand__icon" aria-hidden="true">restaurant</span>
+        <span class="brand__text">
+          <span class="brand__name">Comedor Raquel</span>
+          <span class="brand__tag">Comida nicaragüense</span>
+        </span>
+      </a>
 
-    <p>This webpage is served using <strong>Apache HTTP Server</strong>
-       running inside a <strong>culito de tata</strong>.</p>
+      <nav class="nav" aria-label="Navegación principal">
+        <button class="nav__toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+          <span class="material-icons" aria-hidden="true">menu</span>
+        </button>
 
-    <hr>
+        <ul class="nav__list" id="navList">
+          <li><a class="nav__link" href="#inicio">Inicio</a></li>
+          <li><a class="nav__link" href="#menu">Menú</a></li>
+          <li><a class="nav__link" href="#galeria">Galería</a></li>
+          <li><a class="nav__link" href="#ubicacion">Ubicación</a></li>
+          <li><a class="nav__link" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <p>
-        Server: Apache 2<br>
-        Containerization: Docker
-    </p>
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="inicio" aria-label="Presentación">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <div class="pill">
+            <span class="material-icons" aria-hidden="true">local_fire_department</span>
+            <span>Casero • Fresco • Hecho al momento</span>
+          </div>
 
-    <p>
-        Deployment status: <strong>Running successfully</strong>
-    </p>
+          <h1 class="hero__title">Comida nicaragüense que se siente como en casa.</h1>
+          <p class="hero__subtitle">
+            Almuerzos completos, típicos y bebidas tradicionales. Pedí rápido por WhatsApp y te lo preparamos con cariño.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary" id="whatsappHero" href="#" role="button">
+              <span class="material-icons" aria-hidden="true">whatsapp</span>
+              Ordenar por WhatsApp
+            </a>
+
+            <a class="btn btn--secondary" id="verMenu" href="#menu" role="button">
+              <span class="material-icons" aria-hidden="true">menu_book</span>
+              Ver menú
+            </a>
+          </div>
+
+          <div class="hero__meta">
+            <div class="meta">
+              <span class="material-icons" aria-hidden="true">schedule</span>
+              <div>
+                <strong>Abierto hoy</strong>
+                <span>Lun–Sáb 11:00 AM – 8:30 PM</span>
+              </div>
+            </div>
+
+            <div class="meta">
+              <span class="material-icons" aria-hidden="true">local_shipping</span>
+              <div>
+                <strong>Pedidos</strong>
+                <span>Para llevar y por encargo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card estilo referencia: carrusel + imágenes del bucket -->
+        <div class="hero__media" aria-label="Destacados">
+          <div class="carouselCard">
+            <div class="carousel" id="heroCarousel">
+              <div class="carousel__slide is-active">
+                <img src="https://pub-abbf7ac480e44031bc258c3d83e958e5.r2.dev/gallopinto.png" alt="Gallo pinto" />
+                <div class="carousel__overlay">
+                  <h2>Gallo pinto</h2>
+                  <p>El clásico nica para cualquier hora</p>
+                </div>
+              </div>
+
+              <div class="carousel__slide">
+                <img src="https://pub-abbf7ac480e44031bc258c3d83e958e5.r2.dev/carneasada.png" alt="Carne asada" />
+                <div class="carousel__overlay">
+                  <h2>Carne asada</h2>
+                  <p>Con arroz, frijoles y tajadas</p>
+                </div>
+              </div>
+
+              <div class="carousel__slide">
+                <img src="https://pub-abbf7ac480e44031bc258c3d83e958e5.r2.dev/cacao.png" alt="Cacao" />
+                <div class="carousel__overlay">
+                  <h2>Cacao</h2>
+                  <p>Tradicional, cremoso y calientito</p>
+                </div>
+              </div>
+            </div>
+
+            <button class="carousel__nav carousel__nav--prev" id="prevBtn" aria-label="Anterior">
+              <span class="material-icons" aria-hidden="true">chevron_left</span>
+            </button>
+            <button class="carousel__nav carousel__nav--next" id="nextBtn" aria-label="Siguiente">
+              <span class="material-icons" aria-hidden="true">chevron_right</span>
+            </button>
+
+            <div class="carousel__dots" id="dots" aria-label="Indicadores"></div>
+          </div>
+
+          <p class="hero__note">
+            <span class="material-icons" aria-hidden="true">info</span>
+            Imágenes de ejemplo desde tu bucket (Cloudflare R2).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ¿Qué ofrecemos? -->
+    <section class="section section--dark" id="ofertas" aria-label="Qué ofrecemos">
+      <div class="container">
+        <div style="color: white; padding-bottom: 1rem;">
+          <h2>¿Qué ofrecemos?</h2>
+          <p>Comida rica, porciones completas y atención con cariño.</p>
+        </div>
+
+        <div class="cards cards--4">
+          <article class="card">
+            <span class="material-icons card__icon" aria-hidden="true">ramen_dining</span>
+            <h3>Comida nicaragüense</h3>
+            <p>Recetas tradicionales: gallo pinto, vigorón, tajadas y más.</p>
+          </article>
+
+          <article class="card">
+            <span class="material-icons card__icon" aria-hidden="true">restaurant_menu</span>
+            <h3>Almuerzos completos</h3>
+            <p>Arroz, frijoles, ensalada, plátano y tu proteína favorita.</p>
+          </article>
+
+          <article class="card">
+            <span class="material-icons card__icon" aria-hidden="true">local_cafe</span>
+            <h3>Bebidas</h3>
+            <p>Cacao, refrescos naturales, café y bebidas frías.</p>
+          </article>
+
+          <article class="card">
+            <span class="material-icons card__icon" aria-hidden="true">card_giftcard</span>
+            <h3>Por encargos</h3>
+            <p>Pedidos para reuniones, eventos y celebraciones (consultar).</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menú -->
+    <section class="section" id="menu" aria-label="Menú">
+      <div class="container">
+        <div class="section__head">
+          <h2>Menú destacado</h2>
+          <p>Elegí una categoría y pedí en un toque por WhatsApp.</p>
+        </div>
+
+        <div class="menuFeatured" aria-label="Favoritos">
+          <div class="menuFeatured__grid" id="featuredDishes"></div>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Categorías del menú">
+          <button class="tab is-active" data-category="Almuerzos" role="tab" aria-selected="true">Almuerzos</button>
+          <button class="tab" data-category="Bebidas" role="tab" aria-selected="false">Bebidas</button>
+          <button class="tab" data-category="Típicos" role="tab" aria-selected="false">Típicos</button>
+          <button class="tab" data-category="Extras" role="tab" aria-selected="false">Extras</button>
+        </div>
+
+        <div class="menuGrid" id="menuItems" aria-live="polite"></div>
+
+        <div class="menuHint">
+          <span class="material-icons" aria-hidden="true">tips_and_updates</span>
+          <span>Tip: tocá <b>Pedir</b> para armar el mensaje automáticamente.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="section section--soft" id="galeria" aria-label="Galería">
+      <div class="container">
+        <div class="section__head">
+          <h2>Galería</h2>
+          <p>Un vistazo a lo que preparamos todos los días.</p>
+        </div>
+
+        <div class="gallery" id="galeriaGrid"></div>
+      </div>
+    </section>
+
+    <!-- Ubicación -->
+    <section class="section" id="ubicacion" aria-label="Ubicación y horario">
+      <div class="container">
+        <div class="section__head">
+          <h2>Ubicación y horario</h2>
+          <p>Pasá por tu comida o pedí para llevar.</p>
+        </div>
+
+        <div class="location">
+          <div class="location__info card card--plain">
+            <h3 class="card__title">
+              <span class="material-icons" aria-hidden="true">location_on</span>
+              Dirección
+            </h3>
+
+            <p><b>Dirección:</b> Avenida Central, Barrio Antiguo, Managua (placeholder)</p>
+            <p><b>Teléfono / WhatsApp:</b> +505 8765 4321</p>
+
+            <div class="divider"></div>
+
+            <h3 class="card__title">
+              <span class="material-icons" aria-hidden="true">schedule</span>
+              Horarios
+            </h3>
+            <ul class="hours">
+              <li><span>Lunes – Viernes</span><b>11:00 AM – 8:00 PM</b></li>
+              <li><span>Sábado</span><b>11:00 AM – 9:00 PM</b></li>
+              <li><span>Domingo</span><b>12:00 PM – 8:00 PM</b></li>
+            </ul>
+
+            <a class="btn btn--secondary btn--full" href="#contacto">
+              <span class="material-icons" aria-hidden="true">chat</span>
+              Consultar por encargos
+            </a>
+          </div>
+
+          <div class="location__map card card--plain">
+            <iframe
+              title="Mapa (placeholder)"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3439.3649998926577!2d-86.27127!3d12.114646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f71550ebc9ccccc%3A0x1234567890!2sManagua!5e0!3m2!1ses!2sni!4v1234567890"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+
+            <div class="mapNote">
+              <span class="material-icons" aria-hidden="true">map</span>
+              <span>Mapa de ejemplo. Podés pegar aquí tu ubicación real.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reseñas -->
+    <section class="section section--dark" id="resenas" aria-label="Reseñas">
+      <div class="container">
+        <div class="section__head section__head--light">
+          <h2>Reseñas</h2>
+          <p>Lo que dicen nuestros clientes.</p>
+        </div>
+
+        <div class="cards cards--3">
+          <article class="card card--glass">
+            <div class="stars" aria-label="5 estrellas">
+              <span class="material-icons" aria-hidden="true">star</span>
+              <span class="material-icons" aria-hidden="true">star</span>
+              <span class="material-icons" aria-hidden="true">star</span>
+              <span class="material-icons" aria-hidden="true">star</span>
+              <span class="material-icons" aria-hidden="true">star</span>
+            </div>
+            <p style="color: white;">“Porciones completas y sabor auténtico. El vigorón está brutal.”</p>
+            <p class="author" style="color: white;">— María L.</p>
+          </article>
+
+          <article class="card card--glass">
+            <div class="stars" aria-label="5 estrellas">
+              <span class="material-icons" aria-hidden="true">star</span>
+              <span class="material-icons" aria-hidden="true">star</span>
+              <span class="material-icons" aria-hidden="true">star</span>
+              <span class="material-icons" aria-hidden="true">star</span>
+              <span class="material-icons" aria-hidden="true">star</span>
+            </div>
+            <p style="color: white;">“Carne asada bien servida, y el cacao calientito es otro nivel.”</p>
+            <p class="author" style="color: white;">— Carlos R.</p>
+          </article>
+
+          <article class="card card--glass">
+            <div class="stars" aria-label="5 estrellas">
+              <span class="material-icons" aria-hidden="true">star</span>
+              <span class="material-icons" aria-hidden="true">star</span>
+              <span class="material-icons" aria-hidden="true">star</span>
+              <span class="material-icons" aria-hidden="true">star</span>
+              <span class="material-icons" aria-hidden="true">star</span>
+            </div>
+            <p style="color: white;">“Me encanta porque sabe casero de verdad. Recomendado 100%.”</p>
+            <p class="author" style="color: white;">— Ana M.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto + Footer -->
+    <section class="footerTop" id="contacto" aria-label="Contacto">
+      <div class="container footerTop__grid">
+        <div class="footerTop__brand">
+          <h2 class="footerTop__title">Comedor Raquel</h2>
+          <p class="footerTop__desc">
+            Comida nicaragüense auténtica, hecha con amor. Escribinos y te atendemos.
+          </p>
+
+          <div class="footerTop__contacts">
+            <a class="contactChip" href="#" id="whatsappFooter">
+              <span class="material-icons" aria-hidden="true">whatsapp</span>
+              <span>WhatsApp: +505 8765 4321</span>
+            </a>
+            <a class="contactChip" href="tel:+50587654321">
+              <span class="material-icons" aria-hidden="true">phone</span>
+              <span>Llamar: +505 8765 4321</span>
+            </a>
+          </div>
+
+          <div class="social">
+            <a href="#" aria-label="Facebook"><span class="material-icons" aria-hidden="true">facebook</span></a>
+            <a href="#" aria-label="Instagram"><span class="material-icons" aria-hidden="true">photo_camera</span></a>
+            <a href="#" aria-label="Web"><span class="material-icons" aria-hidden="true">language</span></a>
+          </div>
+        </div>
+
+        <div class="footerTop__formWrap card card--plain">
+          <h3 class="card__title">
+            <span class="material-icons" aria-hidden="true">mail</span>
+            Envíanos un mensaje
+          </h3>
+
+          <form class="form" id="contactoForm" novalidate>
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" autocomplete="name" required />
+              <small class="error" data-error-for="nombre"></small>
+            </div>
+
+            <div class="field">
+              <label for="telefono">Teléfono</label>
+              <input id="telefono" name="telefono" type="tel" placeholder="Ej: 87654321" autocomplete="tel" required />
+              <small class="error" data-error-for="telefono"></small>
+            </div>
+
+            <div class="field">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="4" placeholder="¿Qué te gustaría pedir o consultar?" required></textarea>
+              <small class="error" data-error-for="mensaje"></small>
+            </div>
+
+            <button class="btn btn--primary btn--full" type="submit">
+              <span class="material-icons" aria-hidden="true">send</span>
+              Enviar
+            </button>
+
+            <p class="formNote">*Este formulario solo valida en el navegador (sin backend).</p>
+          </form>
+        </div>
+      </div>
+
+      <footer class="footerBottom">
+        <div class="container footerBottom__inner">
+          <p>© <span id="year"></span> Comedor Raquel. Todos los derechos reservados.</p>
+          <a class="toTop" href="#top">
+            <span class="material-icons" aria-hidden="true">north</span>
+            Volver arriba
+          </a>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
